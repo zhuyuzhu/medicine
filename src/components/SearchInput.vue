@@ -81,6 +81,11 @@ export default {
       }, 200);
     },
     searchResult() {
+      //如果searchResult是空数组，即length是0，就改变showList为false，且不让函数向下执行
+      if(this.searchResult.length == 0) {
+        this.showList = false;
+        return
+      }
       //监听searchResult，当值发生变化的时候，让列表展示出来
       this.showList = true;
     }
@@ -135,9 +140,10 @@ export default {
     position: absolute;
     top: 42px;
     left: -2px;
-    width: 420px;
+    width: 421px;
     // height: 100px;
     border: 1px solid #666;
+    border-top-color: transparent;
     z-index: 9999;
     cursor: pointer;
     margin-bottom: 5px;
