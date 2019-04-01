@@ -1,0 +1,48 @@
+{
+  "ret": true,
+  "data": {
+    "medicine": [
+      {
+        "id": "0001",
+        "spell": "nanxin wanfeile",
+        "name": "男性 万斐乐"
+      },{
+        "id": "0002",
+        "spell": "nanxin jinge",
+        "name": "男性 金戈"
+      },{
+        "id": "0003",
+        "spell": "nanxin hexin",
+        "name": "男性 和欣"
+      },{
+        "id": "0004",
+        "spell": "nanxin wanaike",
+        "name": "男性 万艾可"
+      },{
+        "id": "0005",
+        "spell": "nanxin guilingji",
+        "name": "男性 龟龄集30粒"
+      },{
+        "id": "0006",
+        "spell": "nanxin suoyangbushenjiaonang",
+        "name": "男性 锁阳补肾胶囊"
+      },{
+        "id": "0007",
+        "spell": "nanxin nanbaojiaonang",
+        "name": "男性 男宝胶囊30粒"
+      },{
+        "id": "0008",
+        "spell": "nanxin yubiaobushenwan",
+        "name": "男性 鱼鳔补肾丸"
+      },{
+        "id": "0009",
+        "spell": "nanxin jinsuogujingwan",
+        "name": "男性 金锁固精丸"
+      },{
+        "id": "00010",
+        "spell": "nanxin shengjingpian",
+        "name": "男性 生精片"
+      }
+    ]
+  }
+}

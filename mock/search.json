@@ -1,0 +1,81 @@
+{
+  "ret": true,
+  "data": {
+    "medicine": [
+      {
+        "id": "0001",
+        "spell": "nanxing wanfeile",
+        "name": "男性 万斐乐"
+      },{
+        "id": "0002",
+        "spell": "nanxing jinge",
+        "name": "男性 金戈"
+      },{
+        "id": "0003",
+        "spell": "nanxing hexin",
+        "name": "男性 和欣"
+      },{
+        "id": "0004",
+        "spell": "nanxing wanaike",
+        "name": "男性 万艾可"
+      },{
+        "id": "0005",
+        "spell": "nanxing guilingji",
+        "name": "男性 龟龄集30粒"
+      },{
+        "id": "0006",
+        "spell": "nanxing suoyangbushenjiaonang",
+        "name": "男性 锁阳补肾胶囊"
+      },{
+        "id": "0007",
+        "spell": "nanxing nanbaojiaonang",
+        "name": "男性 男宝胶囊30粒"
+      },{
+        "id": "0008",
+        "spell": "nanxing yubiaobushenwan",
+        "name": "男性 鱼鳔补肾丸"
+      },{
+        "id": "0009",
+        "spell": "nanxing jinsuogujingwan",
+        "name": "男性 金锁固精丸"
+      },{
+        "id": "00010",
+        "spell": "nanxing shengjingpian",
+        "name": "男性 生精片"
+      }
+    ],
+    "trendingSearch": [
+      {
+        "id": "001",
+        "name": "冬虫夏草"
+      },{
+        "id": "002",
+        "name": "血糖仪"
+      },{
+        "id": "003",
+        "name": "补虚药"
+      },{
+        "id": "004",
+        "name": "东阿阿胶"
+      },{
+        "id": "005",
+        "name": "舒筋健腰丸"
+      },{
+        "id": "006",
+        "name": "肾宝片"
+      },{
+        "id": "007",
+        "name": "万通筋骨贴"
+      },{
+        "id": "008",
+        "name": "牛黄解毒片"
+      },{
+        "id": "009",
+        "name": "阿莫西林胶囊"
+      },{
+        "id": "010",
+        "name": "维C银翘片"
+      }
+    ]
+  }
+}
