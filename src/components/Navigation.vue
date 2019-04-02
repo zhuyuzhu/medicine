@@ -2,7 +2,7 @@
   <div class="nav">
     <div class="nav-left nav-common">
       <span class="left-com">欢迎来到网上药店！</span>
-      <router-link to="/message/sign-in" target="_blank" class="left-com signIn">登录</router-link>
+      <span class="left-com signIn" @click="changeShow" ref="lognin">登录</span>
       <router-link to="/message/sign-up" target="_blank" class="left-com signUp">注册</router-link>
       <span class="left-com">客服热线：400-600-6688</span>
     </div>
@@ -21,14 +21,30 @@
       </router-link>
       
     </div>
-
+    <SignIn v-if="show" @message="changeShow"></SignIn>
+    <div v-if="show" ref="shade" class="shade" @click="changeShow"></div>
   </div>
 
 </template>
 
 <script>
-export default {
+import SignIn from './message/SignIn'
 
+export default {
+  data () {
+    return {
+      show: false,
+    }
+  },
+  components: {
+    SignIn
+  },
+  methods: {
+    changeShow() {
+      this.show = !this.show;
+    }
+  }
+ 
 }
 </script>
 
@@ -54,6 +70,7 @@ export default {
       }
       .signIn {
         color: #515151;
+        cursor: pointer;
       }
       .signUp {
         color: red;
@@ -64,6 +81,16 @@ export default {
       a {
         margin-left: 40px;
       }
+    }
+    .shade {
+      // 遮罩层的实现方法
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(36, 36, 36, 0.5);;
+      z-index: 99;
     }
   }
 </style>

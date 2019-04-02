@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Navigation/>
+    <Navigation />
     <div class="logo-search">
       <Logo/>
       <SearchInput class="search-input"/>
