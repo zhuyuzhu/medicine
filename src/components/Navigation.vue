@@ -2,8 +2,8 @@
   <div class="nav">
     <div class="nav-left nav-common">
       <span class="left-com">欢迎来到网上药店！</span>
-      <router-link to="/" class="left-com signIn">登录</router-link>
-      <router-link to="/" class="left-com signUp">注册</router-link>
+      <router-link to="/message/sign-in" target="_blank" class="left-com signIn">登录</router-link>
+      <router-link to="/message/sign-up" target="_blank" class="left-com signUp">注册</router-link>
       <span class="left-com">客服热线：400-600-6688</span>
     </div>
     <div class="nav-right nav-common">
@@ -21,6 +21,7 @@
       </router-link>
       
     </div>
+
   </div>
 
 </template>

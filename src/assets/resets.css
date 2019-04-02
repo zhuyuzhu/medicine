@@ -9,3 +9,6 @@ a {
 ul, ol, li {
   list-style: none;
 }
+input {
+  outline: none;
+}

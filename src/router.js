@@ -10,6 +10,10 @@ const MedicalEquipment = () => import('./components/MedicalEquipment')
 const HealthProtective = () => import('./components/HealthProtective')
 const Error = () => import('./components/Error.vue')
 
+const Message = () => import('./components/Message.vue')
+const SignIn = () => import('./components/message/SignIn.vue')
+const SignUp = () => import('./components/message/SignUp')
+
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +61,23 @@ export default new Router({
       component: HealthProtective
     },
     {
+      path: '/message',
+      name: 'message',
+      component: Message,
+      children: [
+        {
+          path: '/message/sign-in',
+          name: 'signIn',
+          component: SignIn
+        },
+        {
+          path: '/message/sign-up',
+          name: 'signUp',
+          component: SignUp
+        }
+      ]
+    },
+    { //不存在的路径，跳转到该页面
       path: '/error.html',
       name: 'error',
       component: Error
