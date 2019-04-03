@@ -150,7 +150,6 @@ export default {
     background-color: #fff;
     ul li {
       padding-left: 5px;
-
       font-size: 14px;
     }
     ul li:hover {
@@ -169,6 +168,9 @@ export default {
       margin-left: 15px;
       line-height: 30px;
       color: #333;
+    }
+    .trending-list:hover {
+      color: rgb(0, 98, 255);
     }
   }
 }

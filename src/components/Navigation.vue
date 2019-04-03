@@ -7,34 +7,31 @@
       <span class="left-com">客服热线：400-600-6688</span>
     </div>
     <div class="nav-right nav-common">
-      <router-link  to="/about">
+      <router-link to="/about">
         <span class="iconfont">&#xe614;</span>
         <span>&nbsp;我的需求</span>
       </router-link>
       <router-link to="/">
-      <span class="iconfont">&#xe604;</span>
-      <span>&nbsp;我的订单</span>
+        <span class="iconfont">&#xe604;</span>
+        <span>&nbsp;我的订单</span>
       </router-link>
       <router-link to="/">
-      <span class="iconfont">&#xe68a;</span>
-      <span>&nbsp;个人中心</span>
+        <span class="iconfont">&#xe68a;</span>
+        <span>&nbsp;个人中心</span>
       </router-link>
-      
     </div>
-    <SignIn v-if="show" @message="changeShow"></SignIn>
-    <div v-if="show" ref="shade" class="shade" @click="changeShow"></div>
+    <SignIn v-if="show" @message="changeShow" :faShow="true"/>
   </div>
-
 </template>
 
 <script>
-import SignIn from './message/SignIn'
+import SignIn from "./message/SignIn";
 
 export default {
-  data () {
+  data() {
     return {
-      show: false,
-    }
+      show: false
+    };
   },
   components: {
     SignIn
@@ -44,53 +41,42 @@ export default {
       this.show = !this.show;
     }
   }
- 
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .nav {
+.nav {
+  display: inline-block;
+  line-height: 40px;
+  background-color: #f5f5f5;
+  width: 100%;
+  min-width: 1100px;
+
+  .nav-common {
+    width: 500px;
+    font-size: 12px;
+    color: #515151;
     display: inline-block;
-    line-height: 40px;
-    background-color: #f5f5f5;
-    width: 100%;
-    min-width: 1100px;
-    
-    .nav-common {
-      width: 500px;
-      font-size: 12px;
+  }
+  .nav-left {
+    margin-left: 100px;
+    float: left;
+    .left-com {
+      margin-left: 20px;
+    }
+    .signIn {
       color: #515151;
-      display: inline-block;
+      cursor: pointer;
     }
-    .nav-left{
-      margin-left: 100px;
-      float: left;
-      .left-com {
-        margin-left: 20px;
-      }
-      .signIn {
-        color: #515151;
-        cursor: pointer;
-      }
-      .signUp {
-        color: red;
-      }
-    }
-    .nav-right {
-      float: right;
-      a {
-        margin-left: 40px;
-      }
-    }
-    .shade {
-      // 遮罩层的实现方法
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(36, 36, 36, 0.5);;
-      z-index: 99;
+    .signUp {
+      color: red;
     }
   }
+  .nav-right {
+    float: right;
+    a {
+      margin-left: 40px;
+    }
+  }
+}
 </style>

@@ -32,6 +32,7 @@ export default {
 
 <style lang="scss">
 .home {
+  min-height: 1000px;
   .logo-search {
     // border: 1px solid black;
     position: relative;
