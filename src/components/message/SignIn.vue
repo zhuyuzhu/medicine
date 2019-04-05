@@ -53,7 +53,6 @@ export default {
       activeCode: "", //用户输入的动态验证码
       veriCode: "", //随机产生的验证码
       toggle: "no",
-      cancel: false,
       tipPhoneNum: true, //请输入正确电话号码
       tipVerifyCode: true, //请输入验证码，区分大小写
       tipActiveCode: true, //动态验证码错误，请重新填写
@@ -134,7 +133,7 @@ export default {
   methods: {
     //点击差号时，关闭登录框
     chahao() {
-      this.$emit("message", this.cancel);
+      this.$emit("message");
     },
     //正则表达式检查用户输入的电话号码
     inspectPhone() {
@@ -179,7 +178,7 @@ export default {
         // 传给mutations，修改store中的数据
         this.$store.commit("lognin/changeUserNum", { username: this.phoneNum });
         console.log("登录成功！");
-        this.$emit("message", this.cancel);
+        this.$emit("message");
         return;
       }
       console.log("登录失败！");

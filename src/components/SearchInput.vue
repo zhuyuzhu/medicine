@@ -93,6 +93,7 @@ export default {
   created() {
     var self = this;
     axios.get("/api/search").then(ref => {
+      console.log(ref);
       const medicineData = ref.data.data.medicine;
       const trendingSearch = ref.data.data.trendingSearch;
       self.allMedicine = medicineData;

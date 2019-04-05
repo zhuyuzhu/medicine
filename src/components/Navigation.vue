@@ -20,7 +20,7 @@
         <span>&nbsp;个人中心</span>
       </router-link>
     </div>
-    <SignIn v-if="show" @message="changeShow" :faShow="true"/>
+    <SignIn v-if="show" @message="changeShow" />
   </div>
 </template>
 
@@ -37,8 +37,9 @@ export default {
     SignIn
   },
   methods: {
-    changeShow() {
+    changeShow(res) {
       this.show = !this.show;
+      console.log(res)
     }
   }
 };
