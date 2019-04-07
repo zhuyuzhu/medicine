@@ -1,89 +1,89 @@
 <template>
-
-    <div class="logn-in-content">
-        <div class="phone">
-          <input type="text" placeholder="请输入手机号码" v-model="phoneNum" @blur="inspectPhone">
-          <span class="iconfont" @click="clearPhoneNum">&#xe611;</span>
-        </div>
-        <p>{{tipPhoneNum ? '' : '请输入正确的手机号'}}</p>
-        <div class="verification-code">
-          <input type="text" placeholder="请输入验证码" v-model="verificationCode" @blur="verifyCode">
-          <span @click="refreshCode">{{veriCode}}</span>
-        </div>
-        <p>{{tipVerifyCode ? '' : '请输入验证码，区分大小写'}}</p>
-        <div class="active-code">
-          <input type="text" placeholder="请输入动态验证码" v-model="activeCode" @blur="mockActiveCode">
-          <div>获取验证码</div>
-        </div>
-        <p>{{tipActiveCode ? '' : "验证码错误，请重新填写"}}</p>
+  <div class="sign-up">
+    <div class="header">
+      <Logo class="logo"/>
+      <span class="welcome">欢迎注册</span>
+    </div>
+    <div class="content">
+      <Register class="content-input"/>
+      <div class="content-footer">
+        <p>
+          <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+          <span>&nbsp;我已阅读并同意</span>
+          <span>《网上药店用户注册协议》</span>
+        </p>
+        <div class="register">注&nbsp;册</div>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Register from "./Register";
+import Logo from "../Logo";
 export default {
-
-}
+  components: {
+    Register,
+    Logo
+  },
+  data() {
+    return {
+      toggle: "no"
+    };
+  }
+};
 </script>
 <style lang='scss' scoped>
-   .logn-in-content {
-    padding-left: 30px;
-    padding-top: 20px;
-    div {
-      width: 310px;
-      height: 40px;
+.sign-up {
+  background-color: #f2f2f2;
+  .header {
+    background-color: #fff;
+    padding-left: 100px;
+    .welcome {
+      color: #ff334c;
+      font-size: 20px;
     }
-    p {
-      height: 30px;
+  }
+  .content {
+    margin: 60px auto 0;
+    width: 800px;
+    height: 500px;
+    border: 1px solid transparent;
+    background-color: #fff;
+    .content-input {
+      margin-top: 70px;
+      margin-left: 210px;
     }
-    input {
-      padding-left: 5px;
-      width: 300px;
-      height: 40px;
-    }
-    .phone {
-      position: relative;
-      span {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        cursor: pointer;
-        line-height: 40px;
-        width: 30px;
-        color: #666;
-        background-color: #fff;
-        text-align: center;
+    .content-footer {
+      width: 309px;
+      height: 100px;
+      margin-left: 240px;
+      p {
+        margin-top: 10px;
+        input {
+          cursor: pointer;
+        }
+        span {
+          font-size: 12px;
+          vertical-align: 2px;
+        }
+        span:last-of-type {
+          color: #ff334c;
+          cursor: pointer;
+        }
       }
-    }
-    .verification-code {
-      position: relative;
-      span {
-        position: absolute;
-        top: 1px;
-        right: 2px;
-        cursor: pointer;
-        width: 99px;
-        height: 42px;
-        background-image: url("../../assets/code.jpg");
+      .register {
+        width: 309px;
+        height: 40px;
+        font-size: 20px;
+        background-color: #ff334c;
+        color: #fff;
         line-height: 40px;
         text-align: center;
-        color: blue;
-        font-size: 24px;
-      }
-    }
-    .active-code {
-      position: relative;
-      div {
-        position: absolute;
-        top: 1px;
-        right: 2px;
-        width: 99px;
-        height: 42px;
-        vertical-align: 10px;
-        background-color: #949090;
+        margin-top: 30px;
         cursor: pointer;
-        line-height: 40px;
-        text-align: center;
       }
     }
   }
+}
 </style>

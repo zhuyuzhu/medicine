@@ -22,6 +22,7 @@ export default {
       margin-top: 15px;
     }
     .logo-text {
+      margin-left: 20px;
       width: 170px;
       height: 58px;
     }
