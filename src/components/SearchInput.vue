@@ -13,16 +13,16 @@
     </div>
     <div class="searchList" v-show="showList">
       <ul>
-        <router-link tag="li" to="/about" v-for="item in searchResult" :key="item.id">{{item.name}}</router-link>
+        <router-link tag="li" to="/about" v-for="item in searchResult" :key="item.searchId">{{item.meName}}</router-link>
       </ul>
     </div>
-    <div class="trending-search">
+    <div class="hot-search">
       <router-link
         to="/about"
-        v-for="item in trendingSearchData"
-        :key="item.id"
-        class="trending-list"
-      >{{item.name}}</router-link>
+        v-for="item in hotSearchData"
+        :key="item.hotSearchId"
+        class="hot-list"
+      >{{item.hotSearch}}</router-link>
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
       timer1: null, //定时器
       timer2: null,
       showList: false,
-      trendingSearchData: [] //热搜药品
+      hotSearchData: [] //热搜药品
     };
   },
   methods: {
@@ -71,12 +71,16 @@ export default {
         const result = [];
         this.allMedicine.forEach(value => {
           if (
-            value.spell.indexOf(this.searchValue) > -1 ||
-            value.name.indexOf(this.searchValue) > -1
+            value.meSpell.indexOf(this.searchValue) > -1 ||
+            value.meName.indexOf(this.searchValue) > -1
           ) {
             result.push(value);
           }
         });
+        if(result.length > 10) {
+          console.log("list列表大于10，进行截取10个操作")
+          result = result.slice(0, 10)
+        }
         this.searchResult = result;
       }, 200);
     },
@@ -92,18 +96,21 @@ export default {
   },
   created() {
     var self = this;
-    axios.get("/api/search").then(ref => {
+    axios.get("search.php").then(ref => {
       console.log(ref);
-      const medicineData = ref.data.data.medicine;
-      const trendingSearch = ref.data.data.trendingSearch;
-      self.allMedicine = medicineData;
+      const medicineData = ref.data.medicine;
+       self.allMedicine = medicineData;
+    });
+    axios.get("hotSearch.php").then(ref => {
+      console.log(ref);
+      const hotSearch = ref.data.hotSearch;
       //下面对热搜的数据进行乱序，然后，取5组值
-      trendingSearch.sort(() => {
+      hotSearch.sort(() => {
         return 1 - 2 * Math.random();
       });
-      self.trendingSearchData = trendingSearch.slice(0, 5);
-      // console.log(self.trendingSearchData);
-    });
+      self.hotSearchData = hotSearch.slice(0, 5);
+      // console.log(self.hotSearchData);
+    })
   }
 };
 </script>
@@ -159,18 +166,18 @@ export default {
       opacity: 0.7;
     }
   }
-  .trending-search {
+  .hot-search {
     // border: 1px solid black;
     width: 420px;
     height: 25px;
     font-size: 12px;
     
-    .trending-list {
+    .hot-list {
       margin-left: 15px;
       line-height: 30px;
       color: #333;
     }
-    .trending-list:hover {
+    .hot-list:hover {
       color: rgb(0, 98, 255);
     }
   }
