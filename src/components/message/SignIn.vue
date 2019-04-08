@@ -9,9 +9,7 @@
         <div class="message">短信登录</div>
         <div class="member">账号密码登录</div>
       </div>
-      <Register
-        @getChildValue="getChildValue"
-      />
+      <Register @getChildValue="getChildValue"/>
       <div class="logn-in-footer">
         <p>
           <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
@@ -32,7 +30,6 @@
 import axios from "axios";
 import { mapState } from "vuex";
 import Register from "./Register";
-
 
 export default {
   components: {
@@ -64,19 +61,32 @@ export default {
     },
     //点击登录按钮
     lognIn() {
-      console.log(this.phoneNum,this.verificationCode,this.activeCode,
-      this.tipPhoneNum,this.tipVerifyCode,this.tipActiveCode)
       if (this.canLognIn) {
-        // 传给mutations，修改store中的数据
-        this.$store.commit("lognin/changeUserNum", { username: this.phoneNum });
-        console.log("登录成功！");
-        this.$emit("message");
-        return;
+        axios
+          .get("lognInByCode.php", {
+            params: {
+              account: this.phoneNum
+            }
+          })
+          .then(ref => {
+            console.log(ref.data.code);
+            const code = ref.data.code;
+            if (code == 1) {
+              // 传给mutations，修改store中的数据
+              this.$store.commit("lognin/changeUserNum", {
+                username: this.phoneNum
+              });
+              console.log("登录成功！");
+              this.$emit("message");
+              return;
+            }else if(code == 0) {
+              console.log("登录失败！");
+            }
+          });
       }
-      console.log("登录失败！");
     }
   },
-    computed: {
+  computed: {
     //从store中获取数据
     ...mapState({
       userName: state => state.lognin.userName
@@ -92,11 +102,6 @@ export default {
         this.activeCode == "";
       return flag1 && !flag2;
     }
-  },
-  created () {
-    axios.get('lognInByCode.php').then(ref => {
-      console.log(ref.data);
-    })
   }
 };
 </script>
