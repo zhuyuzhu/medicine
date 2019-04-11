@@ -12,3 +12,39 @@ ul, ol, li {
 input {
   outline: none;
 }
+/* 以下是对轮播图的重新设置 */
+li.el-carousel__indicator {
+  /* position: absolute; */
+  margin-left: 40px;
+  height: 20px !important;
+}
+button.el-carousel__button{
+  height: 10px !important;
+  width: 60px !important;
+  background-color: blue !important;
+}
+ul.el-carousel__indicators {
+  min-width: 700px;
+  left: 700px !important;
+}
+button.el-carousel__arrow {
+  border-radius: 0% !important;
+  height: 60px !important;
+  font-size: 20px !important;
+}
+button.el-carousel__arrow:hover {
+  background-color: #aaa;
+}
+button.el-carousel__arrow--left {
+  left: 350px;
+}
+
+button.el-carousel__arrow--right {
+  right: 100px;
+}
+i.el-icon-arrow-left:before {
+  font-size: 30px !important;
+}
+i.el-icon-arrow-right:before {
+  font-size: 30px !important;
+}

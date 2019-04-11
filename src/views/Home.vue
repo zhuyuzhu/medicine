@@ -6,8 +6,9 @@
       <SearchInput class="search-input"/>
       <img src="../assets/zheng.jpg" class="img-zheng">
     </div>
-
-    <Navigator class="navigator"/>
+    <Navigator :show="true" class="navigator"/>
+    <SlideShow />
+    <RightFixed />
   </div>
 </template>
 
@@ -18,6 +19,8 @@ import Navigation from "@/components/Navigation.vue";
 import Navigator from "@/components/Navigator";
 import SearchInput from "@/components/SearchInput";
 import Logo from "@/components/Logo";
+import SlideShow from '@/components/SlideShow';
+import RightFixed from '@/components/RightFixed';
 
 export default {
   // name: 'home',
@@ -25,7 +28,9 @@ export default {
     SearchInput,
     Logo,
     Navigation,
-    Navigator
+    Navigator,
+    SlideShow,
+    RightFixed
   }
 };
 </script>

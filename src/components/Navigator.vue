@@ -1,5 +1,6 @@
 <template>
 <div class="nav">
+  <AllMedicine :show="show" class="medicine" />
   <ul>
     <router-link  tag="li" v-for="item in navLists" :key="item.id" 
       :to="item.path">{{item.title}}</router-link>
@@ -10,7 +11,12 @@
 </template>
 
 <script>
+import AllMedicine from './AllMedicine';
 export default {
+  props: ['show'],
+  components: {
+    AllMedicine,
+  },
   data () {
     return {
       navLists: [
@@ -43,17 +49,26 @@ export default {
 
       ]
     }
-  }
+  },
 }
 </script>
 <style lang='scss' scoped>
   .nav {
+    position: relative;
     width: 100%;
     min-width: 1000px;
     line-height: 40px;
     height: 40px;
     background-color: #47B848;
+    .medicine {
+      position: absolute;
+      top: 0px;
+      left: 100px;
+    }
     ul {
+      position: absolute;
+      top: 0px;
+      left: 300px;
       margin-left: 80px;
       display: inline-block;
       li {

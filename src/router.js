@@ -13,6 +13,7 @@ const Error = () => import('./components/Error.vue')
 const Message = () => import('./components/Message.vue')
 const SignIn = () => import('./components/message/SignIn.vue')
 const SignUp = () => import('./components/message/SignUp')
+const AccountPassword = () => import('./components/message/AccountPassword')
 
 Vue.use(Router)
 
@@ -74,6 +75,11 @@ export default new Router({
           path: '/message/sign-up',
           name: 'signUp',
           component: SignUp
+        },
+        {
+          path: '/message/account-password',
+          name: 'accountPassword',
+          component: AccountPassword
         }
       ]
     },

@@ -1,17 +1,19 @@
 <template>
   <div class="logn-in-content">
     <div class="phone">
-      <input type="text" placeholder="请输入手机号码" v-model="phoneNum" @blur="inspectPhone">
+      <input type="text" placeholder="请输入手机号码" v-model.trim="phoneNum" @blur="inspectPhone">
       <span class="iconfont" @click="clearPhoneNum">&#xe611;</span>
     </div>
-    <p>{{tipPhoneNum ? '' : '请输入正确的手机号'}}</p>
+    <p v-if="tipShow">{{tipPhoneNum ? '' : '请输入正确的手机号'}}</p>
+    <p v-else-if="tip">该手机号已注册，请立即登录</p>
+    <p v-else>该手机号尚未注册，请立即注册</p>
     <div class="verification-code">
-      <input type="text" placeholder="请输入验证码" v-model="verificationCode" @blur="verifyCode">
+      <input type="text" placeholder="请输入验证码" v-model.trim="verificationCode" @blur="verifyCode">
       <span @click="refreshCode">{{veriCode}}</span>
     </div>
     <p>{{tipVerifyCode ? '' : '请输入验证码，区分大小写'}}</p>
     <div class="active-code">
-      <input type="text" placeholder="请输入动态验证码" v-model="activeCode" @blur="mockActiveCode">
+      <input type="text" placeholder="请输入动态验证码" v-model.trim="activeCode" @blur="mockActiveCode">
       <div>获取验证码</div>
     </div>
     <p>{{tipActiveCode ? '' : "验证码错误，请重新填写"}}</p>
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -169,6 +172,12 @@ export default {
       ]);
     }
   },
+  computed: {
+ ...mapState({
+      tipShow: state => state.lognin.tipShow,
+      tip: state => state.lognin.tip
+    }),
+  },
   created() {
     var firstNum = Math.floor(70 * Math.random());
     var secondNum = Math.floor(70 * Math.random());
@@ -231,7 +240,7 @@ export default {
       line-height: 40px;
       text-align: center;
       color: blue;
-      font-size: 24px;
+      font-size: 22px;
     }
   }
   .active-code {

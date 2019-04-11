@@ -1,28 +1,30 @@
 <template>
   <div>
-    <div class="sign-in">
-      <div class="logn-in-header">
-        <span>登 录</span>
-        <span class="iconfont" @click="chahao">&#xe6ac;</span>
-      </div>
-      <div class="logn-in-select">
-        <div class="message">短信登录</div>
-        <div class="member">账号密码登录</div>
-      </div>
-      <Register @getChildValue="getChildValue"/>
-      <div class="logn-in-footer">
-        <p>
-          <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
-          <span>7天内自动登录</span>
-        </p>
-        <div @click="lognIn">登 录</div>
-        <div class="free-logn-up">
-          <span>免费注册</span>
-          <span class="iconfont">&#xe600;</span>
+    <transition name="el-fade-in-linear">
+      <div v-if="popupLogninBox" class="sign-in">
+        <div class="logn-in-header">
+          <span>登 录</span>
+          <span class="iconfont" @click="hideLognin">&#xe6ac;</span>
+        </div>
+        <div class="logn-in-select">
+          <div class="message">短信登录</div>
+          <div class="member">账号密码登录</div>
+        </div>
+        <Register @getChildValue="getChildValue"/>
+        <div class="logn-in-footer">
+          <p>
+            <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+            <span>7天内自动登录</span>
+          </p>
+          <div @click="lognIn">登 录</div>
+          <div class="free-logn-up">
+            <router-link tag="span" to="/message/sign-up">免费注册</router-link>
+            <span class="iconfont">&#xe600;</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="shade" @click="chahao"></div>
+    </transition>
+    <div v-if="popupLogninBox" class="shade" @click="hideLognin"></div>
   </div>
 </template>
 
@@ -48,8 +50,8 @@ export default {
   },
   methods: {
     //点击差号时，关闭登录框
-    chahao() {
-      this.$emit("message");
+    hideLognin() {
+      this.$store.commit("lognin/changePopupLogninBox", false);
     },
     getChildValue(value) {
       this.phoneNum = value[0];
@@ -63,24 +65,32 @@ export default {
     lognIn() {
       if (this.canLognIn) {
         axios
-          .get("lognInByCode.php", {
-            params: {
-              account: this.phoneNum
-            }
+          .post("lognInByCode.php", {
+            account: this.phoneNum
           })
           .then(ref => {
-            console.log(ref.data.code);
-            const code = ref.data.code;
-            if (code == 1) {
+            console.log(ref);
+            const accountLength = ref.data.account.length;
+            console.log(accountLength);
+            if (accountLength === 1) {
               // 传给mutations，修改store中的数据
               this.$store.commit("lognin/changeUserNum", {
                 username: this.phoneNum
               });
+              this.$store.commit("lognin/changeLoggedOff", {
+                loggedOn: true
+              });
               console.log("登录成功！");
               this.$emit("message");
               return;
-            }else if(code == 0) {
-              console.log("登录失败！");
+            } else {
+              console.log("该账号尚未注册，请注册");
+              this.$store.commit("lognin/changeTipShow", {
+                tipShow: false
+              });
+              this.$store.commit("lognin/changeTip", {
+                tip: false
+              });
             }
           });
       }
@@ -89,7 +99,10 @@ export default {
   computed: {
     //从store中获取数据
     ...mapState({
-      userName: state => state.lognin.userName
+      userName: state => state.lognin.userName,
+      tipShow: state => state.lognin.tipShow,
+      loggedOn: state => state.lognin.loggedOn,
+      popupLogninBox: state => state.lognin.popupLogninBox
     }),
     canLognIn() {
       //是否可以登录

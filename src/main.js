@@ -10,8 +10,6 @@ import '@/assets/iconfont.css';//引入icon图标
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 
-console.log(process.env.VUE_APP_URL);//打印当前所处的环境
-
 new Vue({
   router,
   store,
