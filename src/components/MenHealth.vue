@@ -3,16 +3,20 @@
     <Navigation/>
     <h1>This is a MenHealth page!</h1>
      <Navigator class="navigator" />
+     <RightFixed />
   </div>
 </template>
 
 <script>
 import Navigation from "@/components/Navigation.vue";
 import Navigator from "@/components/Navigator";
+import RightFixed from '@/components/RightFixed';
+
 export default {
   components: {
     Navigation,
-    Navigator
+    Navigator,
+    RightFixed
   }
 };
 </script>

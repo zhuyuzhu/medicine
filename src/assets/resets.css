@@ -40,7 +40,7 @@ button.el-carousel__arrow--left {
 }
 
 button.el-carousel__arrow--right {
-  right: 100px;
+  right: 80px;
 }
 i.el-icon-arrow-left:before {
   font-size: 30px !important;

@@ -9,6 +9,8 @@
     <Navigator :show="true" class="navigator"/>
     <SlideShow />
     <RightFixed />
+    <HotSale/>
+    <FamilyStock/>
   </div>
 </template>
 
@@ -21,6 +23,8 @@ import SearchInput from "@/components/SearchInput";
 import Logo from "@/components/Logo";
 import SlideShow from '@/components/SlideShow';
 import RightFixed from '@/components/RightFixed';
+import HotSale from '@/components/home/HotSale';
+import FamilyStock from '@/components/home/FamilyStock';
 
 export default {
   // name: 'home',
@@ -30,7 +34,9 @@ export default {
     Navigation,
     Navigator,
     SlideShow,
-    RightFixed
+    RightFixed,
+    HotSale,
+    FamilyStock
   }
 };
 </script>
