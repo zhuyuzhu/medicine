@@ -16,35 +16,54 @@ input {
 li.el-carousel__indicator {
   /* position: absolute; */
   margin-left: 40px;
-  height: 20px !important;
+  height: 20px;
 }
 button.el-carousel__button{
-  height: 10px !important;
-  width: 60px !important;
-  background-color: blue !important;
+  height: 10px ;
+  width: 60px;
+  background-color: blue;
 }
 ul.el-carousel__indicators {
-  min-width: 700px;
-  left: 700px !important;
+  /* min-width: 700px;
+  left: 700px; */
 }
 button.el-carousel__arrow {
-  border-radius: 0% !important;
-  height: 60px !important;
-  font-size: 20px !important;
+  border-radius: 0% ;
+  height: 60px ;
+  font-size: 20px;
 }
 button.el-carousel__arrow:hover {
   background-color: #aaa;
 }
 button.el-carousel__arrow--left {
-  left: 350px;
+  left: 50px;
 }
 
 button.el-carousel__arrow--right {
   right: 80px;
 }
 i.el-icon-arrow-left:before {
-  font-size: 30px !important;
+  font-size: 30px;
 }
 i.el-icon-arrow-right:before {
-  font-size: 30px !important;
+  font-size: 30px;
+}
+
+.logo-search {
+  /* border: 1px solid black; */
+  position: relative;
+  margin-left: 100px;
+
+}
+.logo-search .search-input {
+  position: absolute;
+  top: -60px;
+  left: 310px;
+}
+.logo-search .img-zheng {
+  position: absolute;
+  top: 40px;
+  left: 950px;
+  width: 200px;
+  height: 60px;
 }

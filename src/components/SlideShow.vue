@@ -10,35 +10,10 @@
 
 <script>
 export default {
+  props: ['imgList'],
   data() {
     return {
-      imgList: [
-        {
-          url: "#",
-          img:
-            "https://ehaoyao.oss-cn-hangzhou.aliyuncs.com/2019/4/2/1554188562789_4.jpg"
-        },
-        {
-          url: "#",
-          img:
-            "https://ehaoyao.oss-cn-hangzhou.aliyuncs.com/2019/3/21/1553132342605_25.jpg"
-        },
-        {
-          url: "#",
-          img:
-            "https://ehaoyao.oss-cn-hangzhou.aliyuncs.com/2018/8/27/1535354843654_21.jpg"
-        },
-        {
-          url: "#",
-          img:
-            "https://ehaoyao.oss-cn-hangzhou.aliyuncs.com/2019/4/3/1554272754643_48.jpg"
-        },
-        {
-          url: "#",
-          img:
-            "https://ehaoyao.oss-cn-hangzhou.aliyuncs.com/2019/3/21/1553149296581_55.jpg"
-        }
-      ]
+      
     };
   }
 };
@@ -53,6 +28,7 @@ export default {
     width: 100%;
     min-width: 1125px;
   }
-
+  
 }
+
 </style>

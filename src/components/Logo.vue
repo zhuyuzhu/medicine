@@ -17,6 +17,8 @@ export default {
     width: 310px;
     height: 90px;
     // border: 1px solid black;
+    // vertical-align: -20px;
+    margin-top: 20px;
     .logo-img {
       width: 60px;
       margin-top: 15px;

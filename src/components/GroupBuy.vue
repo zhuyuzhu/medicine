@@ -1,9 +1,16 @@
 <template>
   <div>
     <Navigation/>
-    <h1>This is the page of GroupBuy</h1>
+    <div class="logo-search">
+      <Logo/>
+      <SearchInput class="search-input"/>
+      <img src="../assets/zheng.jpg" class="img-zheng">
+    </div>
      <Navigator :show="false"  class="navigator" />
+     
      <RightFixed />
+     <GroupContent/>
+     <Footer/>
   </div>
 
 </template>
@@ -12,12 +19,20 @@
 import Navigation from "@/components/Navigation.vue";
 import Navigator from "@/components/Navigator";
 import RightFixed from '@/components/RightFixed';
+import GroupContent from '@/components/groupbuy/GroupContent';
+import SearchInput from "@/components/SearchInput";
+import Logo from "@/components/Logo";
+import Footer from "@/components/Footer";
 
 export default {
   components: {
     Navigation,
     Navigator,
-    RightFixed
+    RightFixed,
+    SearchInput,
+    Logo,
+    GroupContent,
+    Footer
   }
 }
 </script>

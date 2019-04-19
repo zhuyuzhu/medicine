@@ -322,6 +322,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .family-stock {
+  
   margin-left: 30px;
   height: 500px;
   h3 {

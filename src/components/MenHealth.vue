@@ -1,9 +1,14 @@
 <template>
   <div>
     <Navigation/>
-    <h1>This is a MenHealth page!</h1>
+    <div class="logo-search">
+      <Logo/>
+      <SearchInput class="search-input"/>
+      <img src="../assets/zheng.jpg" class="img-zheng">
+    </div>
      <Navigator class="navigator" />
      <RightFixed />
+     <Footer/>
   </div>
 </template>
 
@@ -11,12 +16,18 @@
 import Navigation from "@/components/Navigation.vue";
 import Navigator from "@/components/Navigator";
 import RightFixed from '@/components/RightFixed';
+import SearchInput from "@/components/SearchInput";
+import Logo from "@/components/Logo";
+import Footer from "@/components/Footer";
 
 export default {
   components: {
     Navigation,
     Navigator,
-    RightFixed
+    RightFixed,
+    SearchInput,
+    Logo,
+    Footer
   }
 };
 </script>
