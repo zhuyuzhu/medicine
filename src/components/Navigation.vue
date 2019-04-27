@@ -8,11 +8,11 @@
       <span class="left-com">客服热线：400-600-6688</span>
     </div>
     <div class="nav-right nav-common">
-      <router-link to="/about">
+      <router-link to="/message/mydemand" target="_blank">
         <span class="iconfont">&#xe614;</span>
         <span>&nbsp;我的需求</span>
       </router-link>
-      <router-link to="/">
+      <router-link to="/detail">
         <span class="iconfont">&#xe604;</span>
         <span>&nbsp;我的订单</span>
       </router-link>

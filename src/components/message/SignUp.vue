@@ -3,7 +3,7 @@
     <div class="header">
       <Logo class="logo"/>
       <span class="welcome">欢迎注册</span>
-      <span>已有账号，</span>
+      <span>已有账号! </span>
       <router-link tag="span" to="/message/account-password" target="_self">立即登录</router-link>
     </div>
     <div class="content">

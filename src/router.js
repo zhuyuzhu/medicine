@@ -14,6 +14,8 @@ const Message = () => import('./components/Message.vue')
 const SignIn = () => import('./components/message/SignIn.vue')
 const SignUp = () => import('./components/message/SignUp')
 const AccountPassword = () => import('./components/message/AccountPassword')
+const MyDemand = () => import('./components/message/MyDemand')
+const Detail = () => import('./components/Detail')
 
 Vue.use(Router)
 
@@ -62,6 +64,11 @@ export default new Router({
       component: HealthProtective
     },
     {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
+    },
+    {
       path: '/message',
       name: 'message',
       component: Message,
@@ -80,6 +87,11 @@ export default new Router({
           path: '/message/account-password',
           name: 'accountPassword',
           component: AccountPassword
+        },
+        {
+          path: '/message/mydemand',
+          name: 'myDemand',
+          component: MyDemand
         }
       ]
     },
