@@ -8,6 +8,7 @@ const MenHealth = () => import('./components/MenHealth')
 const LoseWeight = () => import('./components/LoseWeight')
 const MedicalEquipment = () => import('./components/MedicalEquipment')
 const HealthProtective = () => import('./components/HealthProtective')
+const Detail = () => import('./components/Detail')
 const Error = () => import('./components/Error.vue')
 
 const Message = () => import('./components/Message.vue')
@@ -15,7 +16,7 @@ const SignIn = () => import('./components/message/SignIn.vue')
 const SignUp = () => import('./components/message/SignUp')
 const AccountPassword = () => import('./components/message/AccountPassword')
 const MyDemand = () => import('./components/message/MyDemand')
-const Detail = () => import('./components/Detail')
+
 
 Vue.use(Router)
 
@@ -64,7 +65,7 @@ export default new Router({
       component: HealthProtective
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
       component: Detail
     },
